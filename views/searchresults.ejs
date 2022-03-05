@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        .cartList {
+            position: fixed;
+            margin-left: 20px;
+            list-style:none;
+            max-height:85%;
+            overflow:auto;
+            padding:0;
+            text-indent:10px;
+        }
+        .cartList li {
+            color: white; 
+        }
+        ::-webkit-scrollbar {
+             width: 10px;
+             margin-left: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+        background: #888; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" style="margin-right: 20px;" type="submit">Search</button>
+            </form>
+            <form method="POST" action='/logOut' class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
+            </form>
+        </div>
+    </nav>
+
+    <br/>
+
+    <center>
+
+    <ul class="cartList">
+        <%var found = false;%>
+         <% if(('galaxy s21 ultra').includes(searchWord) && searchWord.trim() !=""){ %>
+             <li>
+                 <img id="image" src="/galaxy.jpg" width="193" height="300">
+                 <br>
+                 <label id="label1" class="ml-4 my-2">Galaxy S21 Ultra</label>
+                 <br>
+                 <button onclick="location.href = '/galaxy';" id="galaxy" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+
+         <% }if(('iphone 13 pro').includes(searchWord) && searchWord.trim() !=""){  %>
+             <li>
+                 <img id="image" src="/iphone.jpg" width="193" height="300">
+                 <br>
+                 <label id ="label2" class="ml-4 my-2">iPhone 13 Pro</label>
+                 <br>
+                 <button onclick="location.href = '/iphone';" id="iphone" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+
+        <% }if(('leaves of grass').includes(searchWord) && searchWord.trim() !=""){  %>
+             <li>
+                 <img id="image" src="/leaves.jpg" width="193" height="300">
+                 <br>
+                 <label id="label1" class="ml-4 my-2">Leaves of Grass</label>
+                 <br>
+                 <button onclick="location.href = '/leaves';" id="leaves" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+
+        <% }if(('the sun and her flowers').includes(searchWord) && searchWord.trim() !=""){ %>
+             <li>
+                 <img id="image" src="/sun.jpg" width="193" height="300">
+                 <br>
+                 <label id ="label2" class="ml-4 my-2">The Sun and Her Flowers</label>
+                 <br>
+                 <button onclick="location.href = '/sun';" id="sun" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+
+        <% }if(('boxing bag').includes(searchWord) && searchWord.trim() !=""){ %>
+             <li>
+                 <img id="image" src="/boxing.jpg" width="193" height="300">
+                 <br>
+                 <label id="label1" class="ml-4 my-2">Boxing Bag</label>
+                 <br>
+                 <button onclick="location.href = '/boxing';" id="boxing" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+
+        <% }if(('tennis racket').includes(searchWord) && searchWord.trim() !=""){ %>
+             <li>
+                 <img id="image" src="/tennis.jpg" width="193" height="300">
+                 <br>
+                 <label id ="label2" class="ml-4 my-2">Tennis Racket</label>
+                 <br>
+                 <button onclick="location.href = '/tennis';" id="tennis" class="btn btn-secondary ml-3"> View </button>
+             </li>
+             <%found = true;%>
+        <% }if(found == false && searchWord.trim() !=""){ %>
+            <h1>item not found</h1>
+
+        <% }if(searchWord.trim() ==""){ %>
+            <h1>Search Field is Empty!</h1>
+        <% } %>
+     </ul>
+
+    </center>
+
+</body>
+</html>
